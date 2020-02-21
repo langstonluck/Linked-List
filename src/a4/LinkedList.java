@@ -96,21 +96,22 @@ public class LinkedList<T> implements List<T>{
 			return true;
 			}
 
-			Node<T> how = head;
+			Node<T> current = head;
 			Node<T> previous = null;
 
 
-			while (how != null) {
+			while (current != null) {
 
-			previous = how;
-			how = how.getNext();
-			if (how.getValue().equals(element)) {
-
-			previous.setNext(how.getNext());
+			previous = current;
+			current = current.getNext();
+			if (current.getValue().equals(element)) {
+			Node<T> replace = current.getNext();
+			previous.setNext(replace);
 			currentSize--;
 			return true;
 			}
-
+			current = current.getNext();
+			previous = previous.getNext();
 			}
 
 
@@ -193,7 +194,7 @@ public class LinkedList<T> implements List<T>{
 		Node<T> previous = null;
 		T value = null;
 
-		if ( index < 0 || index >= size()) {
+		if ( index == 0 || index >= size()) {
 		throw new IndexOutOfBoundsException("Out of bounds");
 		}
 		if (index == 0) {
@@ -211,7 +212,7 @@ public class LinkedList<T> implements List<T>{
 		}
 
 		} 
-		for (int i = 0; i < index; i++) {
+		for (int i = 1; i < index - 1; i++) {
 		previous = current;
 		current = current.getNext();
 		}
