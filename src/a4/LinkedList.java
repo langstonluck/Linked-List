@@ -64,18 +64,32 @@ public class LinkedList<T> implements List<T>{
 	@Override
 	public void add(T element) {
 		// TODO Auto-generated method stub
-		Node<T> current = head;
-		Node<T> end = tail;
-		Node<T> toAdd = new NodeImpl(element, null);
 		
-		if (head == null && tail == null) {
-			head = toAdd;
-			tail = toAdd;
-		} else {
-			tail.setNext(toAdd);
-			tail = toAdd;
+		if (head == null) {
+			Node<T> n = new NodeImpl(element, null);
+				head = n;
+				tail = head;
+				currentSize++;
+				return;
 		}
+		
+		Node<T> current = head;
+		tail.setNext(new NodeImpl(element, null));
+		tail = tail.getNext();
 		currentSize++;
+		
+//		Node<T> current = head;
+//		Node<T> end = tail;
+//		Node<T> toAdd = new NodeImpl(element, null);
+//		
+//		if (head == null && tail == null) {
+//			head = toAdd;
+//			tail = toAdd;
+//		} else {
+//			tail.setNext(toAdd);
+//			tail = toAdd;
+//		}
+//		currentSize++;
 	}
 
 	@Override
