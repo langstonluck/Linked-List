@@ -123,7 +123,7 @@ public class LinkedList<T> implements List<T>{
 		if (index < size()- 1) {
 		Node<T> current = head;
 		for (int i = 0; i< index; i++) {
-		current = current.getNext();
+			current = current.getNext();
 		}
 		return (T) current.getValue();
 		}
@@ -139,7 +139,7 @@ public class LinkedList<T> implements List<T>{
 		Node<T> current = head;
 		T setter = null;
 		if (index < 0 || index >= size()) {
-		throw new IndexOutOfBoundsException("Out of bounds");
+			throw new IndexOutOfBoundsException("Out of bounds");
 		}
 
 		for (int i = 0; i< index ; i++) {
@@ -161,15 +161,15 @@ public class LinkedList<T> implements List<T>{
 			throw new IndexOutOfBoundsException("Out of bounds");
 			}
 		if (index == size()) {
-		add(element);
-		return;
+			add(element);
+			return;
 		}
 		if (index == 0) {
-		head = new NodeImpl(element, head);
+			head = new NodeImpl(element, head);
 		} else {
-		Node<T> current = head;
+			Node<T> current = head;
 		for (int i = 0; i < index -1; i++) {
-		current = current.getNext();
+			current = current.getNext();
 		}
 		current.setNext(new NodeImpl(element, current.getNext()));
 		}
@@ -185,24 +185,24 @@ public class LinkedList<T> implements List<T>{
 		Node<T> current = head;
 		Node<T> previous = null;
 		T value = null;
-	
+
 		if ( index < 0 || index >= size()) {
-		throw new IndexOutOfBoundsException("Out of bounds");
+			throw new IndexOutOfBoundsException("Out of bounds");
 		}
 		if (index == 0) {
-		if(head.getNext() != null) {
-		value = head.getValue();
-		head = head.getNext();
-		currentSize--;
-		return value;
+			if (head.getNext() != null) {
+				value = head.getValue();
+				head = head.getNext();
+				currentSize--;
+				return value;
 		}
 		if (head.getNext() == null) {
-		value = head.getValue();
-		head = null;
-		currentSize--;
-		return value;
+			value = head.getValue();
+			head = null;
+			currentSize--;
+			return value;
 		}
-	
+
 		} 
 		for (int i = 0; i < index; i++) {
 		previous = current;
@@ -213,9 +213,7 @@ public class LinkedList<T> implements List<T>{
 		previous.setNext(placeHolder);
 		currentSize--;
 		return value;
-		
-	}
-
+		}
 	@Override
 	public int indexOf(T element) {
 		// TODO Auto-generated method stub
@@ -223,14 +221,14 @@ public class LinkedList<T> implements List<T>{
 		int count = 0;
 
 		if (size() == 0) {
-		return -1;
+			return -1;
 		}
 
 
 		for (int i = 0; i< size(); i++) {
 
 		if (current.getValue().equals(element)) {
-		return count;
+			return count;
 		}
 		count++;
 		current = current.getNext();
@@ -245,19 +243,19 @@ public class LinkedList<T> implements List<T>{
 		int counter = 0;
 		boolean here = false;
 		if (size() == 0) {
-		return -1;
+			return -1;
 		}
 
 		for (int i = 0; i < size(); i++) {
 		if (current.getValue().equals(element)) {
-		here = true;
-		counter = i;
+			here = true;
+			counter = i;
 		}
 		current = current.getNext();
 		}
 
 		if (here = true ) {
-		return counter;
+			return counter;
 		}
 		return -1;
 	}
