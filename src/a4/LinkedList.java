@@ -98,14 +98,12 @@ public class LinkedList<T> implements List<T>{
 				}
 			}
 
-			Node<T> current = head;
-			Node<T> previous = null;
+			Node<T> current = head.getNext();
+			Node<T> previous = head;
 
 
 			while (current != null) {
 
-			previous = current;
-			current = current.getNext();
 			if (current.getValue().equals(element)) {
 				Node<T> replace = current.getNext();
 				previous.setNext(replace);
@@ -200,23 +198,23 @@ public class LinkedList<T> implements List<T>{
 		throw new IndexOutOfBoundsException("Out of bounds");
 		}
 		if (index == 0) {
-		if(head.getNext() != null) {
-		value = head.getValue();
-		head = head.getNext();
-		currentSize--;
-		return value;
+			if (head.getNext() != null) {
+				value = head.getValue();
+				head = head.getNext();
+				currentSize--;
+				return value;
 		}
 		if (head.getNext() == null) {
-		value = head.getValue();
-		head = null;
-		currentSize--;
-		return value;
+			value = head.getValue();
+			head = null;
+			currentSize--;
+			return value;
 		}
 
 		} 
 		for (int i = 1; i < index - 1; i++) {
-		previous = current;
-		current = current.getNext();
+			previous = current;
+			current = current.getNext();
 		}
 		value = current.getValue();
 		Node<T> placeHolder = current.getNext();
