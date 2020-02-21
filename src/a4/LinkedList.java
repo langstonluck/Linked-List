@@ -117,22 +117,20 @@ public class LinkedList<T> implements List<T>{
 	@Override
 	public T get(int index) {
 		// TODO Auto-generated method stub
-		if (index < 0 || index >= size()) {
+		if ( index < 0 || index >= size()) {
 			throw new IndexOutOfBoundsException("Out of bounds");
 			}
-		
-		if (index < size() - 1) {
+		if (index < size()- 1) {
 		Node<T> current = head;
-		
-		for (int i = 0; i < index; i++) {
+		for (int i = 0; i< index; i++) {
 		current = current.getNext();
 		}
-		
 		return (T) current.getValue();
 		}
 		T value = tail.getValue();
-			
-		return null;
+
+		return value;
+
 	}
 
 	@Override
