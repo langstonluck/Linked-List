@@ -85,39 +85,41 @@ public class LinkedList<T> implements List<T>{
 			return false;
 			}
 
-		if (head.getValue().equals(element) && head.getNext() == null) {
+			if (head.getValue().equals(element) && head.getNext() == null) {
 			head = null;
 			tail = null; 
 			currentSize--;
 			return true;
-		} else if ( head.getValue().equals(element)) {
+			} else if( head.getValue().equals(element)) {
 			head = head.getNext();
 			currentSize--;
 			return true;
-		}
+			}
 
-		Node<T> how = head;
-		Node<T> previous = null;
+			Node<T> how = head;
+			Node<T> previous = null;
 
 
-		while (how != null) {
+			while (how != null) {
 
 			previous = how;
 			how = how.getNext();
 			if (how.getValue().equals(element)) {
 
-				previous.setNext(how.getNext());
-				currentSize--;
-				return true;
-		}
+			previous.setNext(how.getNext());
+			currentSize--;
+			return true;
+			}
 
-		}
+			}
 
 
 
-		return false;
-		}
+			return false;
+			}
 
+
+			
 
 	@Override
 	public T get(int index) {
