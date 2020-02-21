@@ -210,8 +210,8 @@ public class LinkedList<T> implements List<T>{
 
 		} 
 		for (int i = 0; i < index; i++) {
-		previous = current;
-		current = current.getNext();
+			previous = current;
+			current = current.getNext();
 		}
 		value = current.getValue();
 		Node<T> placeHolder = current.getNext();
@@ -219,6 +219,8 @@ public class LinkedList<T> implements List<T>{
 		currentSize--;
 		return value;
 		}
+
+
 	@Override
 	public int indexOf(T element) {
 		// TODO Auto-generated method stub
