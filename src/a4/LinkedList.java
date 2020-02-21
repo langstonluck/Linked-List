@@ -85,15 +85,17 @@ public class LinkedList<T> implements List<T>{
 			return false;
 			}
 
-			if (head.getValue().equals(element) && head.getNext() == null) {
-			head = null;
-			tail = null; 
-			currentSize--;
-			return true;
-			} else if( head.getValue().equals(element)) {
-			head = head.getNext();
-			currentSize--;
-			return true;
+			if (head.getValue().equals(element)) {
+				if (head.getNext() == null) {
+					head = null;
+					currentSize--;
+					return true;
+				} else {
+					head.setValue(null);
+					head = head.getNext();
+					currentSize--;
+					return true;
+				}
 			}
 
 			Node<T> current = head;
@@ -105,10 +107,10 @@ public class LinkedList<T> implements List<T>{
 			previous = current;
 			current = current.getNext();
 			if (current.getValue().equals(element)) {
-			Node<T> replace = current.getNext();
-			previous.setNext(replace);
-			currentSize--;
-			return true;
+				Node<T> replace = current.getNext();
+				previous.setNext(replace);
+				currentSize--;
+				return true;
 			}
 			current = current.getNext();
 			previous = previous.getNext();
