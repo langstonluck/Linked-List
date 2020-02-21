@@ -123,7 +123,7 @@ public class LinkedList<T> implements List<T>{
 		if (index < size()- 1) {
 		Node<T> current = head;
 		for (int i = 0; i< index; i++) {
-			current = current.getNext();
+		current = current.getNext();
 		}
 		return (T) current.getValue();
 		}
@@ -139,7 +139,7 @@ public class LinkedList<T> implements List<T>{
 		Node<T> current = head;
 		T setter = null;
 		if (index < 0 || index >= size()) {
-			throw new IndexOutOfBoundsException("Out of bounds");
+		throw new IndexOutOfBoundsException("Out of bounds");
 		}
 
 		for (int i = 0; i< index ; i++) {
