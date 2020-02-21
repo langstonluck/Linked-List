@@ -194,26 +194,26 @@ public class LinkedList<T> implements List<T>{
 		T value = null;
 
 		if ( index < 0 || index >= size()) {
-			throw new IndexOutOfBoundsException("Out of bounds");
+		throw new IndexOutOfBoundsException("Out of bounds");
 		}
 		if (index == 0) {
-			if (head.getNext() != null) {
-				value = head.getValue();
-				head = head.getNext();
-				currentSize--;
-				return value;
+		if(head.getNext() != null) {
+		value = head.getValue();
+		head = head.getNext();
+		currentSize--;
+		return value;
 		}
 		if (head.getNext() == null) {
-			value = head.getValue();
-			head = null;
-			currentSize--;
-			return value;
+		value = head.getValue();
+		head = null;
+		currentSize--;
+		return value;
 		}
 
 		} 
 		for (int i = 0; i < index; i++) {
-			previous = current;
-			current = current.getNext();
+		previous = current;
+		current = current.getNext();
 		}
 		value = current.getValue();
 		Node<T> placeHolder = current.getNext();
@@ -221,6 +221,7 @@ public class LinkedList<T> implements List<T>{
 		currentSize--;
 		return value;
 		}
+
 
 
 	@Override
